@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="university_special_action" model="ir.actions.act_window">
+        <field name="name">university special</field>
+        <field name="res_model">university.special</field>
+        <field name="view_mode">tree,form</field>
+    
+    </record>
+
+<menuitem
+    id="university_special_menu"
+    name="specialités"
+    sequence="10"
+    action='university_special_action' 
+    parent='my_university_base_menu'
+    />
+
+    <record id="university_special_view_form" model="ir.ui.view">
+        <field name="name">university_special.view.form</field>
+        <field name="model">university.special</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="cycle" />
+                        <field name="special_s" />
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="university_special_view_tree" model="ir.ui.view">
+        <field name="name">university_special.view.tree</field>
+        <field name="model">university.special</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="special_s" />
+                <field name="cycle" />                
+            </tree>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_student_card">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <h1>Student Card temp</h1>
+            </t>
+        </t>
+    </template>
+    <template id="report_student_details">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+            <link rel="stylesheet" href="http://localhost:8069/my_university/static/css/styles.css"/>
+            <div class='test'>
+              <h2 >test here</h2><br/>
+              <img width='20px' t-att-src="'data:image/png;base64,%s' % to_text(doc.fields_image)"/>
+              Nom : <t t-esc="doc.nom"/><br/>
+              Prenom : <t t-esc="doc.prenom"/><br/>
+              Spécialité : <t t-esc="doc.special"/><br/>
+              Cycle : <t t-esc="doc.cycle"/><br/>
+                
+            </div>
+            
+            </t>
+            
+        </t>
+    </template> 
+</odoo>

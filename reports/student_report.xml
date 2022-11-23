@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report
+        id="student_card_report"
+        model="university.student"
+        string="student card"
+        report_type="qweb-pdf"
+        name="my_university.report_student_card"
+        file="my_university.report_student_card"
+        paperformat="my_university.paperformat_student"
+        menu="True"
+    />
+
+
+    <report
+        id="student_detail_report"
+        model="university.student"
+        string="student details"
+        report_type="qweb-pdf"
+        name="my_university.report_student_details"
+        file="my_university.report_student_details"
+        paperformat="my_university.paperformat_student"
+        menu="True"
+    />
+
+
+    <record id="paperformat_student" model="report.paperformat">
+        <field name="name">A4</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">0</field>
+        <field name="margin_bottom">0</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+</odoo>
+
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<odoo> -->
+<!-- <report
+        id="university_student_report"
+        string="student report"
+        model="university.student"
+        report_type="qweb-pdf"
+        name="my_university.student_report_card"
+        file="my_university.student_report_card"
+    />
+    <report
+    id="university_student_report"
+    string="student details"
+    model="university.student"
+    report_type="qweb-pdf"
+    name="my_university.student_report_card_report"
+    file="my_university.student_report_card_report"
+/> -->
+
+<!-- <record id="report_student_card" model="ir.actions.report">
+    <field name="name">student card</field>
+    <field model="model">university.student</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">student card report</field>
+    <field name="binding_model_id" ref="model_my_university"/>
+    <field name="binding_report">report</field>
+</record>
+</odoo> -->

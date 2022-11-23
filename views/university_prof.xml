@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="university_prof_action" model='ir.actions.act_window'>
+        <field name="name">My University</field>
+        <field name="res_model">university.prof</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+    <menuitem
+        action="university_prof_action"
+        id="my_university_prof_menu"
+        parent="my_university_base_menu"
+        name="Enseignants"
+    />
+    <!-- <menuitem 
+    id="my_university_subjects"
+    name="Modules"
+    action="university_subject_action"
+    /> -->
+
+
+    <record id="university_prof_view_form" model="ir.ui.view">
+        <field name="name">university prof form</field>
+        <field name="model">university.prof</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <center>
+                        <field name="fields_image" widget="image" style="width:10%" />
+                    </center>
+                    <group>
+                        <field name="nom" />
+
+                    </group>
+                    <group>
+                        <field name="prenom" />
+                    </group>
+
+                    <group>
+                        <field name="Dob" />
+                    </group>
+                    <group>
+                        <field name="sexe" widget='radio' />
+                    </group>
+                    <group>
+                        <field name="email" widget='email'/>
+                        <field name="phone" widget='phone'/>
+                        <field name="users_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="university_prof_view_tree" model="ir.ui.view">
+        <field name="name">university_prof.view.tree</field>
+        <field name="model">university.prof</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="full_name"/>
+                <field name="email" widget='email'/>
+                <field name="phone" widget='phone'/>
+            </tree>
+        </field>
+    </record>  
+
+    <record id="view_prof_kanban" model="ir.ui.view">
+        <field name="name">university.prof.kanban</field>
+        <field name="model">university.prof</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="fields_image"/>
+                <field name="full_name"/>
+                <field name="email" widget='email'/>
+                <field name="phone" widget='phone'/>
+                <field name="id"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click"  style="background-color:grey" >
+                            <div class="o_kanban_image">                             
+                                    <img class="o_kanban_imager_inner_pic"
+                                    t-att-src="kanban_image('university.prof', 'fields_image', record.id.raw_value)"/>
+                            
+                            </div>
+                            <div class="oe_kanban_details" >
+                                <ul>
+                                <li style="color:white">
+                                    <strong>Nom et Prénom :</strong> <field name="full_name" />
+                                </li>
+                                <li style="color:white">
+                                    <strong>Telephone :</strong> <field name="phone"/>
+                                </li>
+                                <li style="color:white">
+
+                                    <strong>Email :</strong> <field name="email"/>
+
+                                </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>
